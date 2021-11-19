@@ -23,6 +23,28 @@ class HistoryViewController: UIViewController {
     
     // MARK: - Property
     var presenter: HistoryViewToPresenterProtocol!
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.reuseIdentifier)
+        tableView.rowHeight          = 100
+        tableView.estimatedRowHeight = 150
+        tableView.delegate           = self
+        tableView.backgroundColor    = .black
+        tableView.separatorColor     = .white
+        return tableView
+    }()
+    
+    private lazy var dataSource = UITableViewDiffableDataSource<Section, Data>(tableView: tableView) { tableView, indexPath, item in
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath) as? HistoryTableViewCell else {
+            return UITableViewCell(style: .default, reuseIdentifier: nil)
+        }
+
+        cell.configure(withItemModel: item)
+        return cell
+    }
+    
+    private var data: [Data] = []
 
     // MARK: - init
     init() {
@@ -39,6 +61,12 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureTableView()
+        
+        self.data = Operations.shared.fetchData()
+
+        updateTable(from: data)
 
         configureUI()
         presenter.viewDidLoad()
@@ -51,6 +79,21 @@ class HistoryViewController: UIViewController {
 
     private func configureUI() {
 
+    }
+    
+    private func updateTable(from data: [Data]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Data>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(data)
+        dataSource.apply(snapshot, animatingDifferences: false, completion: nil)
+    }
+    
+    private func configureTableView() {
+
+        self.view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.right.left.top.bottom.equalTo(self.view)
+        }
     }
 }
 
@@ -68,4 +111,8 @@ extension HistoryViewController: HistoryRouterToViewProtocol{
     func pushView(view: UIViewController) {
         navigationController?.pushViewController(view, animated: true)
     }
+}
+
+extension HistoryViewController: UITableViewDelegate {
+
 }

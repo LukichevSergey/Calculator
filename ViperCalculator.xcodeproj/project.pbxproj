@@ -114,9 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				87D21D47274750E80093EB59 /* Model */,
+				87D21D64274794520093EB59 /* CalculatorViewController.swift */,
 				87D21D62274794520093EB59 /* CalculatorPresenter.swift */,
 				87D21D63274794520093EB59 /* CalculatorRouter.swift */,
-				87D21D64274794520093EB59 /* CalculatorViewController.swift */,
 				87D21D65274794520093EB59 /* CalculatorInteractor.swift */,
 				87D21D66274794520093EB59 /* CalculatorConfigurator.swift */,
 			);
@@ -128,9 +128,9 @@
 			children = (
 				87D21D4E274751670093EB59 /* Model */,
 				87D21D3D274746B80093EB59 /* View */,
+				87D21D6E274794650093EB59 /* HistoryViewController.swift */,
 				87D21D6C274794650093EB59 /* HistoryPresenter.swift */,
 				87D21D6D274794650093EB59 /* HistoryRouter.swift */,
-				87D21D6E274794650093EB59 /* HistoryViewController.swift */,
 				87D21D6F274794650093EB59 /* HistoryInteractor.swift */,
 				87D21D70274794650093EB59 /* HistoryConfigurator.swift */,
 			);
