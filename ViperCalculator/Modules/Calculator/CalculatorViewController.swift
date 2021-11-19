@@ -39,6 +39,13 @@ class CalculatorViewController: UIViewController {
         return label
     }()
     
+    private lazy var historyButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("История", for: .normal)
+        button.addTarget(self, action: #selector(goToHistory), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var mainStack:   UIStackView = self.createStackView(axis: .vertical,   distribution: .fillProportionally)
     private lazy var bottomStack: UIStackView = self.createStackView(axis: .horizontal, distribution: .fillEqually)
 
@@ -58,9 +65,6 @@ class CalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "История", style: .plain, target: self, action: #selector(goToHistory))
-        self.navigationItem.rightBarButtonItem?.tintColor = .white
         
         //Создание кнопок
         Buttons.allCases.forEach { item in
@@ -135,9 +139,14 @@ class CalculatorViewController: UIViewController {
             make.centerX.equalTo(self.view)
             make.bottom.equalTo(mainStack.snp.top)
         }
+        
+        self.view.addSubview(historyButton)
+        historyButton.snp.makeConstraints { make in
+            make.top.right.equalTo(view.safeAreaLayoutGuide)
+        }
 
         configureUI()
-        presenter.viewDidLoad()
+//        presenter.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {

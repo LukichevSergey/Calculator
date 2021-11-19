@@ -35,6 +35,13 @@ class HistoryViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Назад", for: .normal)
+        button.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var dataSource = UITableViewDiffableDataSource<Section, Data>(tableView: tableView) { tableView, indexPath, item in
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath) as? HistoryTableViewCell else {
             return UITableViewCell(style: .default, reuseIdentifier: nil)
@@ -69,7 +76,7 @@ class HistoryViewController: UIViewController {
         updateTable(from: data)
 
         configureUI()
-        presenter.viewDidLoad()
+//        presenter.viewDidLoad()
     }
     
     // MARK: - private func
@@ -89,11 +96,21 @@ class HistoryViewController: UIViewController {
     }
     
     private func configureTableView() {
+        
+        self.view.addSubview(backButton)
+        backButton.snp.makeConstraints { make in
+            make.top.left.equalTo(view.safeAreaLayoutGuide)
+        }
 
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.right.left.top.bottom.equalTo(self.view)
+            make.right.left.bottom.equalToSuperview()
+            make.top.equalTo(backButton.snp.bottom)
         }
+    }
+    
+    @objc private func goBack() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

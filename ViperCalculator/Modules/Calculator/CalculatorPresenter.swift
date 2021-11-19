@@ -169,7 +169,7 @@ class CalculatorPresenter {
 // MARK: CalculatorViewToPresenterProtocol
 extension CalculatorPresenter: CalculatorViewToPresenterProtocol {
     func viewDidLoad() {
-    
+
     }
 }
 
