@@ -17,6 +17,7 @@ protocol HistoryPresenterToViewProtocol: AnyObject {
 protocol HistoryRouterToViewProtocol: AnyObject {
     func presentView(view: UIViewController)
     func pushView(view: UIViewController)
+    func popView()
 }
 
 class HistoryViewController: UIViewController {
@@ -76,7 +77,7 @@ class HistoryViewController: UIViewController {
         updateTable(from: data)
 
         configureUI()
-//        presenter.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
     // MARK: - private func
@@ -110,7 +111,7 @@ class HistoryViewController: UIViewController {
     }
     
     @objc private func goBack() {
-        navigationController?.popViewController(animated: true)
+        presenter.clickGoBack()
     }
 }
 
@@ -127,6 +128,10 @@ extension HistoryViewController: HistoryRouterToViewProtocol{
 
     func pushView(view: UIViewController) {
         navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func popView() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

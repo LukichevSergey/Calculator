@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: HistoryPresenterToRouterProtocol (Presenter -> Router)
 protocol HistoryPresenterToRouterProtocol: AnyObject {
-
+    func presentCalculatorViewController()
 }
 
 class HistoryRouter {
@@ -21,5 +21,9 @@ class HistoryRouter {
 
 // MARK: HistoryPresenterToRouterProtocol
 extension HistoryRouter: HistoryPresenterToRouterProtocol {
+    func presentCalculatorViewController() {
+        view.popView()
+    }
+    
     
 }

@@ -11,6 +11,7 @@ import Foundation
 // MARK: HistoryViewToPresenterProtocol (View -> Presenter)
 protocol HistoryViewToPresenterProtocol: AnyObject {
 	func viewDidLoad()
+    func clickGoBack()
 }
 
 // MARK: HistoryInteractorToPresenterProtocol (Interactor -> Presenter)
@@ -30,6 +31,9 @@ class HistoryPresenter {
 extension HistoryPresenter: HistoryViewToPresenterProtocol {
     func viewDidLoad() {
     
+    }
+    func clickGoBack(){
+        router.presentCalculatorViewController()
     }
 }
 

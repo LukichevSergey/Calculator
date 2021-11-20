@@ -11,6 +11,7 @@ import Foundation
 // MARK: CalculatorViewToPresenterProtocol (View -> Presenter)
 protocol CalculatorViewToPresenterProtocol: AnyObject {
 	func viewDidLoad()
+    func clickToHistory()
 }
 
 // MARK: CalculatorInteractorToPresenterProtocol (Interactor -> Presenter)
@@ -168,9 +169,13 @@ class CalculatorPresenter {
 
 // MARK: CalculatorViewToPresenterProtocol
 extension CalculatorPresenter: CalculatorViewToPresenterProtocol {
-    func viewDidLoad() {
-
+    func clickToHistory() {
+        router.presentHistoryViewController()
     }
+    
+    func viewDidLoad() {
+    }
+    
 }
 
 // MARK: CalculatorInteractorToPresenterProtocol

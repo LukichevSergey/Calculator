@@ -64,8 +64,27 @@ class CalculatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
+
+        configureUI()
+        presenter.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        for buttonsBlock in buttons {
+            for button in buttonsBlock {
+                button.roundingButtons()
+            }
+        }
+    }
+    
+    // MARK: - private func
+    private func commonInit() {
+    }
+
+    private func configureUI() {
+        self.view.backgroundColor = .black
         //Создание кнопок
         Buttons.allCases.forEach { item in
             if item.rawValue == "0" {
@@ -144,28 +163,6 @@ class CalculatorViewController: UIViewController {
         historyButton.snp.makeConstraints { make in
             make.top.right.equalTo(view.safeAreaLayoutGuide)
         }
-
-        configureUI()
-//        presenter.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        for buttonsBlock in buttons {
-            for button in buttonsBlock {
-                button.roundingButtons()
-            }
-        }
-    }
-    
-    // MARK: - private func
-    private func commonInit() {
-
-    }
-
-    private func configureUI() {
-
     }
     
     private func createStackView(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution) -> UIStackView {
@@ -177,8 +174,7 @@ class CalculatorViewController: UIViewController {
     }
     
     @objc private func goToHistory() {
-        let historyViewController = HistoryViewController()
-        navigationController?.pushViewController(historyViewController, animated: true)
+        presenter.clickToHistory()
     }
 }
 
