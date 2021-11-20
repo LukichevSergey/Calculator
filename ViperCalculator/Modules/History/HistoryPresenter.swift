@@ -20,18 +20,24 @@ protocol HistoryInteractorToPresenterProtocol: AnyObject {
 }
 
 class HistoryPresenter {
-
+    
     // MARK: Properties
     var router: HistoryPresenterToRouterProtocol!
     var interactor: HistoryPresenterToInteractorProtocol!
     weak var view: HistoryPresenterToViewProtocol!
+    
+    
 }
 
 // MARK: HistoryViewToPresenterProtocol
 extension HistoryPresenter: HistoryViewToPresenterProtocol {
-    func viewDidLoad() {
     
+    func viewDidLoad() {
+        let operations = interactor.fetchData()
+        
+        view.updateTable(with: operations)
     }
+    
     func clickGoBack(){
         router.presentCalculatorViewController()
     }

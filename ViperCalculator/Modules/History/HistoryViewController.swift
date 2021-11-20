@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: HistoryPresenterToViewProtocol (Presenter -> View)
 protocol HistoryPresenterToViewProtocol: AnyObject {
-
+    func updateTable(with data: [Data])
 }
 
 // MARK: HistoryRouterToViewProtocol (Router -> View)
@@ -51,8 +51,6 @@ class HistoryViewController: UIViewController {
         cell.configure(withItemModel: item)
         return cell
     }
-    
-    private var data: [Data] = []
 
     // MARK: - init
     init() {
@@ -69,12 +67,6 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureTableView()
-        
-        self.data = Operations.shared.fetchData()
-
-        updateTable(from: data)
 
         configureUI()
         presenter.viewDidLoad()
@@ -86,18 +78,6 @@ class HistoryViewController: UIViewController {
     }
 
     private func configureUI() {
-
-    }
-    
-    private func updateTable(from data: [Data]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Data>()
-        snapshot.appendSections(Section.allCases)
-        snapshot.appendItems(data)
-        dataSource.apply(snapshot, animatingDifferences: false, completion: nil)
-    }
-    
-    private func configureTableView() {
-        
         self.view.addSubview(backButton)
         backButton.snp.makeConstraints { make in
             make.top.left.equalTo(view.safeAreaLayoutGuide)
@@ -117,7 +97,12 @@ class HistoryViewController: UIViewController {
 
 // MARK: HistoryPresenterToViewProtocol 
 extension HistoryViewController: HistoryPresenterToViewProtocol{
-    
+    func updateTable(with data: [Data]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Data>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(data)
+        dataSource.apply(snapshot, animatingDifferences: false, completion: nil)
+    }
 }
 
 // MARK: HistoryRouterToViewProtocol

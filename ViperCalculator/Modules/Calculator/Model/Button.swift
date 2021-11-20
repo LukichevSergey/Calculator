@@ -78,6 +78,5 @@ class Button: UIButton {
 
     @objc func pressToButton() {
         delegate?.returnedValue(value: self.title!)
-        
     }
 }

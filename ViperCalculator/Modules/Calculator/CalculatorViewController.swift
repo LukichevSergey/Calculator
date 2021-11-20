@@ -11,7 +11,7 @@ import SnapKit
 
 // MARK: CalculatorPresenterToViewProtocol (Presenter -> View)
 protocol CalculatorPresenterToViewProtocol: AnyObject {
-
+    func updateValue(value: String)
 }
 
 // MARK: CalculatorRouterToViewProtocol (Router -> View)
@@ -25,9 +25,11 @@ class CalculatorViewController: UIViewController {
     // MARK: - Property
     var presenter: CalculatorViewToPresenterProtocol!
     
+    //--------------------------------------------------------------
     private var buttons: [[Button]]    = [[], [], [], [], [], []]
     private var stacks:  [UIStackView] = []
-
+    //--------------------------------------------------------------
+    
     private lazy var label: UILabel = {
         let label                       = UILabel()
         label.text                      = "0"
@@ -180,7 +182,9 @@ class CalculatorViewController: UIViewController {
 
 // MARK: CalculatorPresenterToViewProtocol 
 extension CalculatorViewController: CalculatorPresenterToViewProtocol{
-    
+    func updateValue(value: String) {
+        self.label.text = value
+    }
 }
 
 // MARK: CalculatorRouterToViewProtocol
@@ -196,7 +200,9 @@ extension CalculatorViewController: CalculatorRouterToViewProtocol{
 
 extension CalculatorViewController: ButtonDelegate {
     func returnedValue(value: String) {
-        CalculatorPresenter.shared.clickButtonHandler(withTag: value)
-        self.label.text = CalculatorPresenter.shared.resultText
+//        CalculatorPresenter.shared.clickButtonHandler(withTag: value)
+//        self.label.text = CalculatorPresenter.shared.resultText
+        
+        presenter.clickToButton(withTag: value)
     }
 }

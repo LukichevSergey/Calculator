@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: CalculatorPresenterToInteractorProtocol (Presenter -> Interactor)
 protocol CalculatorPresenterToInteractorProtocol: AnyObject {
-
+    func returnValue(tag: String) -> String
 }
 
 class CalculatorInteractor {
@@ -22,5 +22,9 @@ class CalculatorInteractor {
 
 // MARK: CalculatorPresenterToInteractorProtocol
 extension CalculatorInteractor: CalculatorPresenterToInteractorProtocol {
-    
+    func returnValue(tag: String) -> String {
+        CalculatorProperties.shared.clickButtonHandler(withTag: tag)
+        let result: String = CalculatorProperties.shared.resultText
+        return result
+    }
 }
