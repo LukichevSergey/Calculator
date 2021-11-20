@@ -42,7 +42,6 @@ extension CalculatorPresenter: CalculatorViewToPresenterProtocol {
     
     func viewDidLoad() {
     }
-    
 }
 
 // MARK: CalculatorInteractorToPresenterProtocol

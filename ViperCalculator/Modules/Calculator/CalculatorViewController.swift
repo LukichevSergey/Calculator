@@ -24,11 +24,9 @@ class CalculatorViewController: UIViewController {
     
     // MARK: - Property
     var presenter: CalculatorViewToPresenterProtocol!
-    
-    //--------------------------------------------------------------
+
     private var buttons: [[Button]]    = [[], [], [], [], [], []]
     private var stacks:  [UIStackView] = []
-    //--------------------------------------------------------------
     
     private lazy var label: UILabel = {
         let label                       = UILabel()
@@ -200,9 +198,6 @@ extension CalculatorViewController: CalculatorRouterToViewProtocol{
 
 extension CalculatorViewController: ButtonDelegate {
     func returnedValue(value: String) {
-//        CalculatorPresenter.shared.clickButtonHandler(withTag: value)
-//        self.label.text = CalculatorPresenter.shared.resultText
-        
         presenter.clickToButton(withTag: value)
     }
 }
