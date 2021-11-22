@@ -21,9 +21,7 @@ class HistoryRouter {
 
 // MARK: HistoryPresenterToRouterProtocol
 extension HistoryRouter: HistoryPresenterToRouterProtocol {
-    func presentCalculatorViewController() {
+    func presentCalculatorViewController() { //back
         view.popView()
     }
-    
-    
 }

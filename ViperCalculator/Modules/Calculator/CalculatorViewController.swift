@@ -25,17 +25,17 @@ class CalculatorViewController: UIViewController {
     // MARK: - Property
     var presenter: CalculatorViewToPresenterProtocol!
 
-    private var buttons: [[Button]]    = [[], [], [], [], [], []]
-    private var stacks:  [UIStackView] = []
+    private var buttons: [[Button]] = [[], [], [], [], [], []]
+    private var stacks: [UIStackView] = []
     
     private lazy var label: UILabel = {
-        let label                       = UILabel()
-        label.text                      = "0"
-        label.textAlignment             = .right
-        label.textColor                 = .white
-        label.minimumScaleFactor        = 0.5
+        let label = UILabel()
+        label.text = "0"
+        label.textAlignment = .right
+        label.textColor = .white
+        label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
-        label.font                      = .systemFont(ofSize: 65)
+        label.font = .systemFont(ofSize: 65)
         return label
     }()
     
@@ -77,6 +77,12 @@ class CalculatorViewController: UIViewController {
                 button.roundingButtons()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Очистка результата, при возврате с экрана истории
+        presenter.clickToButton(withTag: "AC")
     }
     
     // MARK: - private func
@@ -167,10 +173,10 @@ class CalculatorViewController: UIViewController {
     }
     
     private func createStackView(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution) -> UIStackView {
-        let stack          = UIStackView()
+        let stack = UIStackView()
         stack.distribution = distribution
-        stack.spacing      = 10
-        stack.axis         = axis
+        stack.spacing = 10
+        stack.axis = axis
         return stack
     }
     

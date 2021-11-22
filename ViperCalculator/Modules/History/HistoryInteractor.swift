@@ -10,20 +10,17 @@ import Foundation
 
 // MARK: HistoryPresenterToInteractorProtocol (Presenter -> Interactor)
 protocol HistoryPresenterToInteractorProtocol: AnyObject {
-    func fetchData() -> [Data]?
+    var data: [Data] { get }
     func cleanHistory()
 }
 
 class HistoryInteractor {
 
-    // MARK: Properties
-    weak var presenter: HistoryInteractorToPresenterProtocol!
-
 }
 
 // MARK: HistoryPresenterToInteractorProtocol
 extension HistoryInteractor: HistoryPresenterToInteractorProtocol {
-    func fetchData() -> [Data]? {
+    var data: [Data] {
         var data: [Data] = []
         if let historyData = Operations.shared.fetchData() {
             data = historyData

@@ -10,21 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
-    let calculator = CalculatorConfigurator()
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowsScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowsScene)
             
-            let controller = calculator.configure()
+            let controller = CalculatorConfigurator().configure()
             let navigationViewController = UINavigationController()
             navigationViewController.navigationBar.isHidden = true
             navigationViewController.viewControllers = [controller]
             window.rootViewController = navigationViewController
-            
-            
             
             self.window = window
             

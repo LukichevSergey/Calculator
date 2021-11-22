@@ -28,11 +28,11 @@ class HistoryViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.reuseIdentifier)
-        tableView.rowHeight          = 100
+        tableView.rowHeight = 100
         tableView.estimatedRowHeight = 150
-        tableView.delegate           = self
-        tableView.backgroundColor    = .black
-        tableView.separatorColor     = .white
+        tableView.delegate = self
+        tableView.backgroundColor = .black
+        tableView.separatorStyle = .none
         return tableView
     }()
     

@@ -17,13 +17,19 @@ class CalculatorInteractor {
 
     // MARK: Properties
     weak var presenter: CalculatorInteractorToPresenterProtocol!
+    
+    private let calculatorProperties: CalculatorProperties
+    
+    init() {
+        calculatorProperties = CalculatorProperties()
+    }
 
 }
 
 // MARK: CalculatorPresenterToInteractorProtocol
 extension CalculatorInteractor: CalculatorPresenterToInteractorProtocol {
     func returnValue(tag: String) -> String {
-        CalculatorProperties.shared.clickButtonHandler(withTag: tag)
-        return CalculatorProperties.shared.resultText
+        calculatorProperties.clickButtonHandler(withTag: tag)
+        return calculatorProperties.resultText
     }
 }

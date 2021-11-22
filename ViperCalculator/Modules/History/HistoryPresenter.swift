@@ -15,18 +15,12 @@ protocol HistoryViewToPresenterProtocol: AnyObject {
     func clickCleanHistory()
 }
 
-// MARK: HistoryInteractorToPresenterProtocol (Interactor -> Presenter)
-protocol HistoryInteractorToPresenterProtocol: AnyObject {
-
-}
-
 class HistoryPresenter {
     
     // MARK: Properties
     var router: HistoryPresenterToRouterProtocol!
     var interactor: HistoryPresenterToInteractorProtocol!
     weak var view: HistoryPresenterToViewProtocol!
-    
     
 }
 
@@ -47,13 +41,8 @@ extension HistoryPresenter: HistoryViewToPresenterProtocol {
     }
     
     private func updateTable() {
-        if let operations = interactor.fetchData() {
-            view.updateTable(with: operations)
+        DispatchQueue.main.async {
+            self.view.updateTable(with: self.interactor.data)
         }
     }
-}
-
-// MARK: HistoryInteractorToPresenterProtocol
-extension HistoryPresenter: HistoryInteractorToPresenterProtocol {
-    
 }

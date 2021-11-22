@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: CalculatorPresenterToRouterProtocol (Presenter -> Router)
 protocol CalculatorPresenterToRouterProtocol: AnyObject {
-    func presentHistoryViewController()
+    func navigateToHistory()
 }
 
 class CalculatorRouter {
@@ -23,8 +23,7 @@ class CalculatorRouter {
 
 // MARK: CalculatorPresenterToRouterProtocol
 extension CalculatorRouter: CalculatorPresenterToRouterProtocol {
-    func presentHistoryViewController() {
-        let historyConfigurator = HistoryConfigurator()
-        view.pushView(view: historyConfigurator.configure())
+    func navigateToHistory() {
+        view.pushView(view: HistoryConfigurator().configure())
     }
 }

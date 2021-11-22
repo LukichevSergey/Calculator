@@ -9,8 +9,6 @@ import Foundation
 
 class CalculatorProperties {
     
-    static let shared = CalculatorProperties()
-    
     private var numberOne: Double = 0
     private var numberTwo: Double = 0
     private var sign: Sign        = .empty
@@ -22,8 +20,6 @@ class CalculatorProperties {
             return result.textFormatting
         }
     }
-    
-    private init() {}
     
     private func pressToNumber(number: String) {
         if self.result.count == 1 && self.result == Buttons.zero.rawValue {

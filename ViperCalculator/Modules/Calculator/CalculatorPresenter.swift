@@ -37,7 +37,7 @@ extension CalculatorPresenter: CalculatorViewToPresenterProtocol {
     }
     
     func clickToHistory() {
-        router.presentHistoryViewController()
+        router.navigateToHistory()
     }
     
     func viewDidLoad() {
