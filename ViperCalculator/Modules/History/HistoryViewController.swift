@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: HistoryPresenterToViewProtocol (Presenter -> View)
 protocol HistoryPresenterToViewProtocol: AnyObject {
-    func updateTable(with data: [Data])
+    func updateTable(with data: [Operation])
 }
 
 // MARK: HistoryRouterToViewProtocol (Router -> View)
@@ -50,7 +50,7 @@ class HistoryViewController: UIViewController {
         return button
     }()
     
-    private lazy var dataSource = UITableViewDiffableDataSource<Section, Data>(tableView: tableView) { tableView, indexPath, item in
+    private lazy var dataSource = UITableViewDiffableDataSource<Section, Operation>(tableView: tableView) { tableView, indexPath, item in
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath) as? HistoryTableViewCell else {
             return UITableViewCell(style: .default, reuseIdentifier: nil)
         }
@@ -115,8 +115,8 @@ class HistoryViewController: UIViewController {
 
 // MARK: HistoryPresenterToViewProtocol 
 extension HistoryViewController: HistoryPresenterToViewProtocol{
-    func updateTable(with data: [Data]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Data>()
+    func updateTable(with data: [Operation]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Operation>()
         snapshot.appendSections(Section.allCases)
         snapshot.appendItems(data)
         dataSource.apply(snapshot, animatingDifferences: false, completion: nil)

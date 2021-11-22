@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8750343C274BBB7700A64CFC /* ViperCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8750343A274BBB7700A64CFC /* ViperCalculator.xcdatamodeld */; };
 		87524EEB2748E81A007FD18C /* CalculatorProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87524EEA2748E81A007FD18C /* CalculatorProperties.swift */; };
 		87D21D0C27473E690093EB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D21D0B27473E690093EB59 /* AppDelegate.swift */; };
 		87D21D0E27473E690093EB59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D21D0D27473E690093EB59 /* SceneDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8750343B274BBB7700A64CFC /* ViperCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ViperCalculator.xcdatamodel; sourceTree = "<group>"; };
 		87524EEA2748E81A007FD18C /* CalculatorProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorProperties.swift; sourceTree = "<group>"; };
 		87D21D0827473E690093EB59 /* ViperCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViperCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D21D0B27473E690093EB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				87D21D0B27473E690093EB59 /* AppDelegate.swift */,
 				87D21D0D27473E690093EB59 /* SceneDelegate.swift */,
+				8750343A274BBB7700A64CFC /* ViperCalculator.xcdatamodeld */,
 				87D21D1427473E6A0093EB59 /* Assets.xcassets */,
 				87D21D1627473E6A0093EB59 /* LaunchScreen.storyboard */,
 				87D21D1927473E6A0093EB59 /* Info.plist */,
@@ -278,6 +281,7 @@
 				87D21D49274751090093EB59 /* Button.swift in Sources */,
 				87D21D74274794650093EB59 /* HistoryInteractor.swift in Sources */,
 				87D21D67274794520093EB59 /* CalculatorPresenter.swift in Sources */,
+				8750343C274BBB7700A64CFC /* ViperCalculator.xcdatamodeld in Sources */,
 				87D21D52274751950093EB59 /* Section.swift in Sources */,
 				87D21D4227474C710093EB59 /* String + Extensions.swift in Sources */,
 				87D21D54274751AB0093EB59 /* Data.swift in Sources */,
@@ -517,6 +521,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		8750343A274BBB7700A64CFC /* ViperCalculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8750343B274BBB7700A64CFC /* ViperCalculator.xcdatamodel */,
+			);
+			currentVersion = 8750343B274BBB7700A64CFC /* ViperCalculator.xcdatamodel */;
+			path = ViperCalculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 87D21D0027473E690093EB59 /* Project object */;
 }

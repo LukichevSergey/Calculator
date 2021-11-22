@@ -41,7 +41,7 @@ class HistoryTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(withItemModel model: Data) {
+    func configure(withItemModel model: Operation) {
         self.backgroundColor = .black
         self.sign.text = model.sign
         self.value.text = model.result
