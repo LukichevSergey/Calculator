@@ -12,6 +12,7 @@ import Foundation
 protocol HistoryViewToPresenterProtocol: AnyObject {
 	func viewDidLoad()
     func clickGoBack()
+    func clickCleanHistory()
 }
 
 // MARK: HistoryInteractorToPresenterProtocol (Interactor -> Presenter)
@@ -33,13 +34,22 @@ class HistoryPresenter {
 extension HistoryPresenter: HistoryViewToPresenterProtocol {
     
     func viewDidLoad() {
-        if let operations = interactor.fetchData() {
-            view.updateTable(with: operations)
-        }
+        updateTable()
     }
     
     func clickGoBack(){
         router.presentCalculatorViewController()
+    }
+    
+    func clickCleanHistory() {
+        interactor.cleanHistory()
+        updateTable()
+    }
+    
+    private func updateTable() {
+        if let operations = interactor.fetchData() {
+            view.updateTable(with: operations)
+        }
     }
 }
 

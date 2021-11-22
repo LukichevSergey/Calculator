@@ -21,4 +21,8 @@ class Operations {
         let operation = Data(firstNumber: firstNumber, secondNumber: secondNumber, sign: sign, result: result)
         operations.append(operation)
     }
+    
+    func cleanOperations() {
+        self.operations = []
+    }
 }

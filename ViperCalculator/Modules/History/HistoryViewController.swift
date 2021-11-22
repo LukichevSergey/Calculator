@@ -43,6 +43,13 @@ class HistoryViewController: UIViewController {
         return button
     }()
     
+    private lazy var cleanButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Очистить историю", for: .normal)
+        button.addTarget(self, action: #selector(cleanHistory), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var dataSource = UITableViewDiffableDataSource<Section, Data>(tableView: tableView) { tableView, indexPath, item in
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath) as? HistoryTableViewCell else {
             return UITableViewCell(style: .default, reuseIdentifier: nil)
@@ -83,6 +90,12 @@ class HistoryViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.equalTo(view.safeAreaLayoutGuide).inset(15)
         }
+        
+        self.view.addSubview(cleanButton)
+        cleanButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.right.equalTo(view.safeAreaLayoutGuide).inset(15)
+        }
 
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -93,6 +106,10 @@ class HistoryViewController: UIViewController {
     
     @objc private func goBack() {
         presenter.clickGoBack()
+    }
+    
+    @objc private func cleanHistory() {
+        presenter.clickCleanHistory()
     }
 }
 

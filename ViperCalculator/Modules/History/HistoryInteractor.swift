@@ -11,6 +11,7 @@ import Foundation
 // MARK: HistoryPresenterToInteractorProtocol (Presenter -> Interactor)
 protocol HistoryPresenterToInteractorProtocol: AnyObject {
     func fetchData() -> [Data]?
+    func cleanHistory()
 }
 
 class HistoryInteractor {
@@ -28,5 +29,9 @@ extension HistoryInteractor: HistoryPresenterToInteractorProtocol {
             data = historyData
         }
         return data
+    }
+    
+    func cleanHistory() {
+        Operations.shared.cleanOperations()
     }
 }
