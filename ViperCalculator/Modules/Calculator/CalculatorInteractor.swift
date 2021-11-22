@@ -24,7 +24,6 @@ class CalculatorInteractor {
 extension CalculatorInteractor: CalculatorPresenterToInteractorProtocol {
     func returnValue(tag: String) -> String {
         CalculatorProperties.shared.clickButtonHandler(withTag: tag)
-        let result: String = CalculatorProperties.shared.resultText
-        return result
+        return CalculatorProperties.shared.resultText
     }
 }

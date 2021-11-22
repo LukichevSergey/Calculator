@@ -161,7 +161,8 @@ class CalculatorViewController: UIViewController {
         
         self.view.addSubview(historyButton)
         historyButton.snp.makeConstraints { make in
-            make.top.right.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.right.equalTo(view.safeAreaLayoutGuide).inset(15)
         }
     }
     

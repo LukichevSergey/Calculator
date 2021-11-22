@@ -13,8 +13,8 @@ class Operations {
     
     private(set) var operations: [Data] = []
     
-    func fetchData() -> [Data] {
-        return self.operations.count > 0 ? self.operations : [Data(firstNumber: 0, secondNumber: 0, sign: "", result: "0")]
+    func fetchData() -> [Data]? {
+        return self.operations.count > 0 ? self.operations : nil
     }
     
     func saveOperation(firstNumber: Double, secondNumber: Double, sign: String, result: String) {

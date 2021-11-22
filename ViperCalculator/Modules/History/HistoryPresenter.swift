@@ -33,9 +33,9 @@ class HistoryPresenter {
 extension HistoryPresenter: HistoryViewToPresenterProtocol {
     
     func viewDidLoad() {
-        let operations = interactor.fetchData()
-        
-        view.updateTable(with: operations)
+        if let operations = interactor.fetchData() {
+            view.updateTable(with: operations)
+        }
     }
     
     func clickGoBack(){

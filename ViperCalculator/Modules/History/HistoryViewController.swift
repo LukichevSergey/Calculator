@@ -80,7 +80,8 @@ class HistoryViewController: UIViewController {
     private func configureUI() {
         self.view.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.top.left.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalTo(view.safeAreaLayoutGuide).inset(15)
         }
 
         self.view.addSubview(tableView)
