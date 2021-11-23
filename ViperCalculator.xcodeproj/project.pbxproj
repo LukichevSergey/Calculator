@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87302D8D274C862400050168 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87302D8C274C862400050168 /* CoreDataManager.swift */; };
 		8750343C274BBB7700A64CFC /* ViperCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8750343A274BBB7700A64CFC /* ViperCalculator.xcdatamodeld */; };
 		87524EEB2748E81A007FD18C /* CalculatorProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87524EEA2748E81A007FD18C /* CalculatorProperties.swift */; };
 		87D21D0C27473E690093EB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D21D0B27473E690093EB59 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87302D8C274C862400050168 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8750343B274BBB7700A64CFC /* ViperCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ViperCalculator.xcdatamodel; sourceTree = "<group>"; };
 		87524EEA2748E81A007FD18C /* CalculatorProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorProperties.swift; sourceTree = "<group>"; };
 		87D21D0827473E690093EB59 /* ViperCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViperCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87302D8E274C8A6800050168 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8750343A274BBB7700A64CFC /* ViperCalculator.xcdatamodeld */,
+				87302D8C274C862400050168 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		87D21CFF27473E690093EB59 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +109,7 @@
 		87D21D0A27473E690093EB59 /* ViperCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				87302D8E274C8A6800050168 /* CoreData */,
 				87D21D1F27473EA30093EB59 /* Modules */,
 				87D21D4027474C350093EB59 /* Extensions */,
 				87D21D4627474E290093EB59 /* Supporting Files */,
@@ -163,7 +175,6 @@
 			children = (
 				87D21D0B27473E690093EB59 /* AppDelegate.swift */,
 				87D21D0D27473E690093EB59 /* SceneDelegate.swift */,
-				8750343A274BBB7700A64CFC /* ViperCalculator.xcdatamodeld */,
 				87D21D1427473E6A0093EB59 /* Assets.xcassets */,
 				87D21D1627473E6A0093EB59 /* LaunchScreen.storyboard */,
 				87D21D1927473E6A0093EB59 /* Info.plist */,
@@ -289,6 +300,7 @@
 				87D21D75274794650093EB59 /* HistoryConfigurator.swift in Sources */,
 				87D21D6A274794520093EB59 /* CalculatorInteractor.swift in Sources */,
 				87D21D69274794520093EB59 /* CalculatorViewController.swift in Sources */,
+				87302D8D274C862400050168 /* CoreDataManager.swift in Sources */,
 				87D21D56274753FB0093EB59 /* ButtonDelegate.swift in Sources */,
 				87D21D502747517B0093EB59 /* Operations.swift in Sources */,
 				87D21D4427474C8D0093EB59 /* UIButton + Extensions.swift in Sources */,
