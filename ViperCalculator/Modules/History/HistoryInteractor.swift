@@ -15,11 +15,7 @@ protocol HistoryPresenterToInteractorProtocol: AnyObject {
 }
 
 class HistoryInteractor {
-//    private let coreDataManager: CoreDataManager
-//    
-//    init() {
-//        coreDataManager = CoreDataManager()
-//    }
+
 }
 
 // MARK: HistoryPresenterToInteractorProtocol
