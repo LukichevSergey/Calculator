@@ -16,14 +16,11 @@ protocol CalculatorPresenterToInteractorProtocol: AnyObject {
 class CalculatorInteractor {
 
     // MARK: Properties
-    weak var presenter: CalculatorInteractorToPresenterProtocol!
-    
     private let calculatorProperties: CalculatorProperties
     
     init() {
         calculatorProperties = CalculatorProperties()
     }
-
 }
 
 // MARK: CalculatorPresenterToInteractorProtocol

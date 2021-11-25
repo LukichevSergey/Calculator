@@ -10,16 +10,16 @@ import UIKit
 
 class HistoryConfigurator {
     func configure() -> UIViewController {
-        let view = HistoryViewController()
-        let presenter = HistoryPresenter()
-        let router = HistoryRouter()
+        let view       = HistoryViewController()
+        let presenter  = HistoryPresenter()
+        let router     = HistoryRouter()
         let interactor = HistoryInteractor()
         
-        view.presenter = presenter
-        presenter.router = router
+        view.presenter       = presenter
+        presenter.router     = router
         presenter.interactor = interactor
-        presenter.view = view
-        router.view = view
+        presenter.view       = view
+        router.view          = view
         
         return view
     }

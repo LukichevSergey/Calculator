@@ -144,6 +144,5 @@ class CalculatorProperties {
                 pressToNumber(number: String(tag))
             }
         }
-
     }
 }

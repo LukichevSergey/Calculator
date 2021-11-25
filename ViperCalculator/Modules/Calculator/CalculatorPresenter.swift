@@ -10,14 +10,8 @@ import Foundation
 
 // MARK: CalculatorViewToPresenterProtocol (View -> Presenter)
 protocol CalculatorViewToPresenterProtocol: AnyObject {
-	func viewDidLoad()
     func clickToHistory()
     func clickToButton(withTag: String)
-}
-
-// MARK: CalculatorInteractorToPresenterProtocol (Interactor -> Presenter)
-protocol CalculatorInteractorToPresenterProtocol: AnyObject {
-
 }
 
 class CalculatorPresenter {
@@ -31,20 +25,12 @@ class CalculatorPresenter {
 
 // MARK: CalculatorViewToPresenterProtocol
 extension CalculatorPresenter: CalculatorViewToPresenterProtocol {
+    
     func clickToButton(withTag tag: String) {
-        let newValue = interactor.returnValue(tag: tag)
-        view.updateValue(value: newValue)
+        view.updateValue(value: interactor.returnValue(tag: tag))
     }
     
     func clickToHistory() {
         router.navigateToHistory()
     }
-    
-    func viewDidLoad() {
-    }
-}
-
-// MARK: CalculatorInteractorToPresenterProtocol
-extension CalculatorPresenter: CalculatorInteractorToPresenterProtocol {
-    
 }

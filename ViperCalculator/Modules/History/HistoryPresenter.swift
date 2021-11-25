@@ -32,7 +32,7 @@ extension HistoryPresenter: HistoryViewToPresenterProtocol {
     }
     
     func clickGoBack(){
-        router.presentCalculatorViewController()
+        router.backToCalculatorViewController()
     }
     
     func clickCleanHistory() {

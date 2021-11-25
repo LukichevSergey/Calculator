@@ -25,17 +25,17 @@ class CalculatorViewController: UIViewController {
     // MARK: - Property
     var presenter: CalculatorViewToPresenterProtocol!
 
-    private var buttons: [[Button]] = [[], [], [], [], [], []]
-    private var stacks: [UIStackView] = []
+    private var buttons: [[Button]]    = [[], [], [], [], [], []]
+    private var stacks:  [UIStackView] = []
     
     private lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = "0"
-        label.textAlignment = .right
-        label.textColor = .white
-        label.minimumScaleFactor = 0.5
+        let label                       = UILabel()
+        label.text                      = "0"
+        label.textAlignment             = .right
+        label.textColor                 = .white
+        label.minimumScaleFactor        = 0.5
         label.adjustsFontSizeToFitWidth = true
-        label.font = .systemFont(ofSize: 65)
+        label.font                      = .systemFont(ofSize: 65)
         return label
     }()
     
@@ -52,21 +52,16 @@ class CalculatorViewController: UIViewController {
     // MARK: - init
     init() {
         super.init(nibName: nil, bundle: nil)
-
-        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        commonInit()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureUI()
-        presenter.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,8 +81,6 @@ class CalculatorViewController: UIViewController {
     }
     
     // MARK: - private func
-    private func commonInit() {
-    }
 
     private func configureUI() {
         self.view.backgroundColor = .black
@@ -173,10 +166,10 @@ class CalculatorViewController: UIViewController {
     }
     
     private func createStackView(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution) -> UIStackView {
-        let stack = UIStackView()
+        let stack          = UIStackView()
         stack.distribution = distribution
-        stack.spacing = 10
-        stack.axis = axis
+        stack.spacing      = 10
+        stack.axis         = axis
         return stack
     }
     

@@ -28,11 +28,11 @@ class HistoryViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.reuseIdentifier)
-        tableView.rowHeight = 100
+        tableView.rowHeight          = 100
         tableView.estimatedRowHeight = 150
-        tableView.delegate = self
-        tableView.backgroundColor = .black
-        tableView.separatorStyle = .none
+        tableView.delegate           = self
+        tableView.backgroundColor    = .black
+        tableView.separatorStyle     = .none
         return tableView
     }()
     
@@ -62,14 +62,10 @@ class HistoryViewController: UIViewController {
     // MARK: - init
     init() {
         super.init(nibName: nil, bundle: nil)
-
-        commonInit()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        commonInit()
     }
     
     override func viewDidLoad() {
@@ -80,10 +76,6 @@ class HistoryViewController: UIViewController {
     }
     
     // MARK: - private func
-    private func commonInit() {
-
-    }
-
     private func configureUI() {
         self.view.addSubview(backButton)
         backButton.snp.makeConstraints { make in

@@ -8,9 +8,9 @@
 import Foundation
 
 enum Sign: String {
-    case plus = "+"
-    case minus = "-"
+    case plus     = "+"
+    case minus    = "-"
     case multiply = "*"
-    case divide = "/"
-    case empty = ""
+    case divide   = "/"
+    case empty    = ""
 }

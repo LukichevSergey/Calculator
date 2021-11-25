@@ -17,8 +17,6 @@ class CalculatorRouter {
 
     // MARK: Properties
     weak var view: CalculatorRouterToViewProtocol!
-    
-
 }
 
 // MARK: CalculatorPresenterToRouterProtocol

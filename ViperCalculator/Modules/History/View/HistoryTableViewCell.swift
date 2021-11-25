@@ -9,15 +9,15 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
 
-    lazy var firstNumber: UILabel = createLabel()
+    lazy var firstNumber: UILabel  = createLabel()
     lazy var secondNumber: UILabel = createLabel()
-    lazy var sign: UILabel = createLabel()
-    lazy var value: UILabel = createLabel()
-    lazy var equals: UILabel = createLabel()
+    lazy var sign: UILabel         = createLabel()
+    lazy var value: UILabel        = createLabel()
+    lazy var equals: UILabel       = createLabel()
     
     lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [firstNumber, sign, secondNumber, equals, value])
-        stack.axis = .horizontal
+        let stack          = UIStackView(arrangedSubviews: [firstNumber, sign, secondNumber, equals, value])
+        stack.axis         = .horizontal
         stack.distribution = .fillProportionally
         return stack
     }()
@@ -42,21 +42,20 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     func configure(withItemModel model: Operation) {
-        self.backgroundColor = .black
-        self.sign.text = model.sign
-        self.value.text = model.result
-        self.firstNumber.text = "\(model.firstNumber)".textFormatting
+        self.backgroundColor   = .black
+        self.sign.text         = model.sign
+        self.value.text        = model.result
+        self.firstNumber.text  = "\(model.firstNumber)".textFormatting
         self.secondNumber.text = "\(model.secondNumber)".textFormatting
-        self.equals.text = "="
+        self.equals.text       = "="
     }
     
     private func createLabel() -> UILabel {
-        let label = UILabel()
+        let label                       = UILabel()
         label.adjustsFontSizeToFitWidth = true
-        label.font = .systemFont(ofSize: 35)
-        label.textAlignment = .center
-        label.textColor = .white
+        label.font                      = .systemFont(ofSize: 35)
+        label.textAlignment             = .center
+        label.textColor                 = .white
         return label
     }
-
 }

@@ -30,11 +30,11 @@ class Operations {
     func saveOperation(firstNumber: Double, secondNumber: Double, sign: String, result: String) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Operation", in: context) else { return }
         
-        let operation = Operation(entity: entity, insertInto: context)
-        operation.firstNumber = firstNumber
+        let operation          = Operation(entity: entity, insertInto: context)
+        operation.firstNumber  = firstNumber
         operation.secondNumber = secondNumber
-        operation.sign = sign
-        operation.result = result
+        operation.sign         = sign
+        operation.result       = result
         
         saveContext()
     }

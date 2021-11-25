@@ -10,17 +10,16 @@ import UIKit
 
 class CalculatorConfigurator {
     func configure() -> UIViewController {
-        let view = CalculatorViewController()
-        let presenter = CalculatorPresenter()
-        let router = CalculatorRouter()
+        let view       = CalculatorViewController()
+        let presenter  = CalculatorPresenter()
+        let router     = CalculatorRouter()
         let interactor = CalculatorInteractor()
         
-        view.presenter = presenter
-        presenter.router = router
+        view.presenter       = presenter
+        presenter.router     = router
         presenter.interactor = interactor
-        presenter.view = view
-        interactor.presenter = presenter
-        router.view = view
+        presenter.view       = view
+        router.view          = view
         
         return view
     }
